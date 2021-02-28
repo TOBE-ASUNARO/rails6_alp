@@ -30,6 +30,12 @@ docker run --rm -v $PWD:/rails_app rails_app rails new . -B --database=mysql
 sudo mv config/database.yml config/database.yml.bak
 sudo cp ../_install_tmp/database.yml config/
 
+# 編集ファイルconfig/webpacker.ymlをconfig/に強制的に作る（素のbundleインストールでうまく入らないから）
+sudo cp ../_install_tmp/webpacker.yml config/
+
+
+
+
 # Ruby on Railsが起動するDockerイメージを作成していく
 # Docker環境で起動したアプリケーションに外部からアクセスをする場合、
 #『0.0.0.0』と指定をしないとアクセスできないので気をつけてください。
