@@ -11,7 +11,7 @@ cd rails_app/
 
 
 # rails_appというDockerイメージを作成します。
-docker build -t rails_app .
+docker build --no-cache -t rails_app .
 
 # docker上に、rails new . で、railsアプリひな形作成
 # 今回はMarriaDB(MySQL)をデータベースに利用するため-database=mysqlのオプションを追加します。
