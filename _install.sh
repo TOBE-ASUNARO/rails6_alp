@@ -53,11 +53,10 @@ echo '' >> ../rails_app/Dockerfile
 # Dockerfileに追加、entrypoit.shは、＃をとる処理。
 
 # 準備ができたのでdocker-composeコマンドを利用してビルド && # dbデータベース作成まで
-# build後にececさせるため
+# build後にececさせるため,30秒処理とめる（PCで調整必要？）
 cd ..
-sudo docker-compose build
-docker-compose up -d && \
-docker-compose exec rails rake db:create
+sudo docker-compose build && docker-compose up -d && sleep 30;docker-compose exec rails rake db:create
+
 # でーたべーすが、出来たか確認。
 # docker-compose exec db mysql -uroot -ppassword
 # show databases; 
