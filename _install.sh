@@ -3,7 +3,7 @@
 # このファイルに（_install.sh）に実行権限をあたえ、実行してください
 
 # rails_app に移動
-cd rails_app
+cd rails_app/
 
 
 #mkdir tmp && cd tmp && mkdir pids && cd pids && touch server.pid && cd ../..
@@ -28,7 +28,7 @@ docker run --rm rails_app -v $PWD:/rails_app rails new . -B --database=mysql
 # 編集ファイルconfig/database.ymlをconfig/database.yml.bakとバックアップのうえ、
 # すでに作成しておいたファイル_を上書きする。
 sudo mv config/database.yml config/database.yml.bak
-sudo cp ../_install_tmp/database.yml config/
+sudo cp ../_install_tmp/database.yml iconfig/
 
 # Ruby on Railsが起動するDockerイメージを作成していく
 # Docker環境で起動したアプリケーションに外部からアクセスをする場合、
@@ -36,11 +36,11 @@ sudo cp ../_install_tmp/database.yml config/
 # （Docker環境のlocalhostとローカル環境のlocalhostは指すものが違うため。）
 # rails server -b 0.0.0.0
 echo '' >> ../rails_app/Dockerfile
-echo '# entrypoint.sh に記述とします。' >> ../rails_app/Dockerfile
+echo '# entrypoint.sh に記述とします。ちょっとまちに' >> ../rails_app/Dockerfile
 echo '' >> ../rails_app/Dockerfile
 echo '# Start the main process.' >> ../rails_app/Dockerfile
 echo '' >> ../rails_app/Dockerfile
-echo '# CMD ["rails", "server", "-b", "0.0.0.0"]' >> ../rails_app/Dockerfile
+echo 'CMD ["rails", "server", "-b", "0.0.0.0"]' >> ../rails_app/Dockerfile
 echo '' >> ../rails_app/Dockerfile
 
 #sed -e 's/#rails/rails/' ../rails_app/entrypoint.sh
