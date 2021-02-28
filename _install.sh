@@ -42,6 +42,7 @@ echo -e '# Start the main process.' >> ../rails_app/Dockerfile
 echo -e '# CMD ["rails", "server", "-b", "0.0.0.0"]' >> ../rails_app/Dockerfile
 #sed -e 's/#rails/rails/' ../rails_app/entrypoint.sh
 # 準備ができたのでdocker-composeコマンドを利用してビルド
+cd ..
 sudo docker-compose build
 docker-compose up -d
 
