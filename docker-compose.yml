@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.5.8
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  
+    env_file: .env
+  
+  rails:
+    build:
+      context: ./rails_app
+      dockerfile: Dockerfile
+    ports:
+      - ${BACKEND_PORT}:3000
+    volumes:
+      - ./rails_app/:/rails_app
+      - rails-bandle:/user/local/bundle
+    depends_on:
+      - db
+    env_file: .env
+
+
+volumes:
+  rails-bandle:
+  db-data:
