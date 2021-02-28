@@ -42,7 +42,7 @@ sudo cp ../_install_tmp/webpacker.yml config/
 # （Docker環境のlocalhostとローカル環境のlocalhostは指すものが違うため。）
 # rails server -b 0.0.0.0
 echo '' >> ../rails_app/Dockerfile
-echo '# entrypoint.sh に記述とします。ちょっとまちに' >> ../rails_app/Dockerfile
+echo '# entrypoint.sh に記述とします。---＞ちょっとまちに' >> ../rails_app/Dockerfile
 echo '' >> ../rails_app/Dockerfile
 echo '# Start the main process.' >> ../rails_app/Dockerfile
 echo '' >> ../rails_app/Dockerfile
