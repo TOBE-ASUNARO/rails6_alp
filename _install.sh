@@ -52,12 +52,11 @@ echo '' >> ../rails_app/Dockerfile
 #sed -e 's/#rails/rails/' ../rails_app/entrypoint.sh
 # Dockerfileに追加、entrypoit.shは、＃をとる処理。
 
-# 準備ができたのでdocker-composeコマンドを利用してビルド
+# 準備ができたのでdocker-composeコマンドを利用してビルド && # dbデータベース作成まで
+# build後にececさせるため
 cd ..
 sudo docker-compose build
-docker-compose up -d
-
-# dbデータベース作成
+docker-compose up -d && \
 docker-compose exec rails rake db:create
 # でーたべーすが、出来たか確認。
 # docker-compose exec db mysql -uroot -ppassword
