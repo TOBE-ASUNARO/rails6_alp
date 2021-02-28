@@ -16,7 +16,7 @@ docker build --no-cache -t rails_app .
 # docker上に、rails new . で、railsアプリひな形作成
 # 今回はMarriaDB(MySQL)をデータベースに利用するため-database=mysqlのオプションを追加します。
 # なお、-Bはbundle installを省略するオプションです。
-docker run --rm rails_app -v $PWD:/rails_app rails new . -B --database=mysql
+docker run --rm -v $PWD:/rails_app rails_app rails new . -B --database=mysql
 
 # Ruby on Railsからデータベースへ接続するための設定ファイルが作成されますので、以下のように修正します。
 # config/database.yml
