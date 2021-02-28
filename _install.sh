@@ -27,8 +27,8 @@ docker run --rm rails_app -v $PWD:/rails_app rails new . -B --database=mysql
 
 # 編集ファイルconfig/database.ymlをconfig/database.yml.bakとバックアップのうえ、
 # すでに作成しておいたファイル_を上書きする。
-sudo mv rails_app/config/database.yml rails_app/config/database.yml.bak
-sudo cp _install_tmp/database.yml rails_app/config/
+sudo mv config/database.yml ../rails_app/config/database.yml.bak
+sudo cp ../_install_tmp/database.yml ../rails_app/config/
 
 # Ruby on Railsが起動するDockerイメージを作成していく
 # Docker環境で起動したアプリケーションに外部からアクセスをする場合、
