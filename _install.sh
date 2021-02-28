@@ -35,12 +35,17 @@ sudo cp ../_install_tmp/database.yml ../rails_app/config/
 #『0.0.0.0』と指定をしないとアクセスできないので気をつけてください。
 # （Docker環境のlocalhostとローカル環境のlocalhostは指すものが違うため。）
 # rails server -b 0.0.0.0
-# dockerfileに追加、entrypoit.shは、＃をとる処理。
-echo -e '' >> ../rails_app/Dockerfile
-echo -e '# entrypoint.sh に記述とします。' >> ../rails_app/Dockerfile
-echo -e '# Start the main process.' >> ../rails_app/Dockerfile
-echo -e '# CMD ["rails", "server", "-b", "0.0.0.0"]' >> ../rails_app/Dockerfile
+echo '' >> ../rails_app/Dockerfile
+echo '# entrypoint.sh に記述とします。' >> ../rails_app/Dockerfile
+echo '' >> ../rails_app/Dockerfile
+echo '# Start the main process.' >> ../rails_app/Dockerfile
+echo '' >> ../rails_app/Dockerfile
+echo '# CMD ["rails", "server", "-b", "0.0.0.0"]' >> ../rails_app/Dockerfile
+echo '' >> ../rails_app/Dockerfile
+
 #sed -e 's/#rails/rails/' ../rails_app/entrypoint.sh
+# Dockerfileに追加、entrypoit.shは、＃をとる処理。
+
 # 準備ができたのでdocker-composeコマンドを利用してビルド
 cd ..
 sudo docker-compose build
