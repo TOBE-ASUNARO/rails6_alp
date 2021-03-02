@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  
     env_file: .env
+    tty: true
+    stdin_open: true
   
   rails:
     build:
@@ -21,7 +23,8 @@ services:
     depends_on:
       - db
     env_file: .env
-
+    tty: true
+    stdin_open: true
 
 volumes:
   rails-bundle:
