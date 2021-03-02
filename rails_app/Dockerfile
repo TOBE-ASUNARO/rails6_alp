@@ -6,7 +6,7 @@ FROM ruby:3.0.0-alpine3.12
 # 作業ディレクトリを/rails_appに
 # TZ設定
 # Rails HOST/PORT
-ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers git openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
 ENV DEV_PACKAGES "build-base curl-dev"
 ENV APP_HOME /rails_app
 ENV TZ Asia/Tokyo
