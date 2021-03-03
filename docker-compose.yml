@@ -20,6 +20,7 @@ services:
     volumes:
       - ./rails_app/:/rails_app
       - rails-bundle:/user/local/bundle
+      - ./_roothome/:/root
     depends_on:
       - db
     env_file: .env
