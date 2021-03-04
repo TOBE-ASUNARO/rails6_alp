@@ -55,7 +55,7 @@ echo '' >> ../rails_app/Dockerfile
 # 準備ができたのでdocker-composeコマンドを利用してビルド && # dbデータベース作成まで
 # build後にececさせるため,30秒処理とめる（PCで調整必要？）
 cd ..
-sudo docker-compose build && docker-compose up -d && sleep 30;docker-compose exec rails rake db:create
+sudo docker-compose build --no-cache && docker-compose up -d && sleep 30;docker-compose exec rails rake db:create
 
 # でーたべーすが、出来たか確認。
 # docker-compose exec db mysql -uroot -ppassword

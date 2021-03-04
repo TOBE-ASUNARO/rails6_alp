@@ -5,4 +5,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+
+  gem "ruby-debug-ide"
+  gem "debase"
 end
