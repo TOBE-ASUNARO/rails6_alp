@@ -6,7 +6,7 @@ FROM ruby:3.0.0-alpine3.12
 # 作業ディレクトリを/rails_appに
 # TZ設定
 # Rails HOST/PORT
-ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git bash zsh fish openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git bash zsh fish curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
 ENV DEV_PACKAGES "build-base curl-dev"
 ENV APP_HOME /rails_app
 ENV TZ Asia/Tokyo
@@ -29,6 +29,7 @@ RUN apk update \
     && apk add --update --no-cache ${RUNTIME_PACKAGES} \
     && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
     && bundle install --jobs=4 \
+    && yarn install \
     && rm -rf /usr/local/bundle/cache/*.gem \
         && find /usr/local/bundle/gems/ -name "*.c" -delete \
         && find /usr/local/bundle/gems/ -name "*.o" -delete \
