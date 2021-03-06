@@ -1,0 +1,71 @@
+add_newline = true
+
+[character]
+symbol = "?"
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = true
+threshold = -1
+symbol = " "
+separator = "/"
+style = "bold dimmed blue"
+
+[package]
+disabled = true
+
+
+
+# 
+# [git_branch]
+# symbol = "🌱 "
+# truncation_length = 4
+# truncation_symbol = ""
+# 
+# [git_commit]
+# commit_hash_length = 4
+# tag_symbol = "🔖 "
+# 
+# [git_status]
+# conflicted = "🏳"
+# ahead = "🏎💨"
+# behind = "😰"
+# diverged = "😵"
+# untracked = "🤷‍"
+# stashed = "📦"
+# modified = "📝"
+# staged = '[++\($count\)](green)'
+# renamed = "👅"
+# deleted = "🗑"
+# 
+# [git_status]
+# ahead = "⇡${count}"
+# diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+# behind = "⇣${count}"
+# 
+
+
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+
+
+[aws]
+style = "bold blue"
+symbol = "? "
+displayed_items = "all"
+
+[aws.region_aliases]
+ap-northeast-1 = "jp"
+

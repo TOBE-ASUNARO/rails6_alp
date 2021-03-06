@@ -6,7 +6,7 @@ FROM ruby:3.0.0-alpine3.12
 # 作業ディレクトリを/rails_appに
 # TZ設定
 # Rails HOST/PORT
-ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git bash zsh fish curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers exa fd ripgrep vim git tmux bash zsh fish fzf curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
 ENV DEV_PACKAGES "build-base curl-dev"
 ENV APP_HOME /rails_app
 ENV TZ Asia/Tokyo
@@ -34,7 +34,8 @@ RUN apk update \
         && find /usr/local/bundle/gems/ -name "*.c" -delete \
         && find /usr/local/bundle/gems/ -name "*.o" -delete \
     && apk del --purge .build-dependencies \
-    && rm -rf /var/cache/apk/ 
+    && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/ \
+    && curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
 #    && rails webpacker:install
 
 COPY . ${APP_HOME}
