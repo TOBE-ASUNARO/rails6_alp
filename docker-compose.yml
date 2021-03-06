@@ -29,6 +29,19 @@ services:
     tty: true
     stdin_open: true
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=${DB_HOST}
+    ports:
+      - 8888:80
+    volumes:
+      - pma-session:/sessions
+    depends_on: 
+      - rails
+    env_file: .env
+
 volumes:
   rails-bundle:
   db-data:
+  pma-session:

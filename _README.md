@@ -20,3 +20,8 @@ cd
 docker-compose build rails
 ```
 でイメージを再ビルドで完成。
+
+⑤アドレスとポートは下記。（localhostがだめなら、127.0.0.1　を試してください。）
+localhost:3306 MariaDB, usr/pw : root/password
+localhost:8888 PhpMyAdmin, usr/pw : root/password 
+localhost:3000 Rails
