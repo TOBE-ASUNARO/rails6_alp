@@ -32,7 +32,9 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
-      - PMA_HOST=${DB_HOST}
+      - PMA_HOST:${DB_HOST}
+      - PMA_USER:root
+      - PMA_PASSWORD:${MYSQL_ROOT_PASSWORD}
     ports:
       - 8888:80
     volumes:
