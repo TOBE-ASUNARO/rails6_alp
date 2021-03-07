@@ -6,7 +6,15 @@ FROM ruby:3.0.0-alpine3.12
 # 作業ディレクトリを/rails_appに
 # TZ設定
 # Rails HOST/PORT
-ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers exa fd ripgrep vim git tmux bash zsh fish fzf curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
+
+# ---------環境で、書き換えを--------
+# for MAC
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git zsh fish curl openssh make yarn mysql-dev mariadb-client tzdata nodejs"
+
+# for win
+# ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers exa fd ripgrep vim git tmux bash zsh fish fzf curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
+# --------------------------------
+
 ENV DEV_PACKAGES "build-base curl-dev"
 ENV APP_HOME /rails_app
 ENV TZ Asia/Tokyo
