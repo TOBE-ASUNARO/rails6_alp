@@ -9,7 +9,7 @@ FROM ruby:3.0.0-alpine3.12
 
 # ---------環境で、書き換えを--------
 # for MAC
-ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers make yarn mysql-dev mariadb-client tzdata nodejs"
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers fish make yarn mysql-dev mariadb-client tzdata nodejs"
 
 # for win
 # ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers exa fd ripgrep vim git tmux bash zsh fish fzf curl openssh openssl openssl-dev make yarn mysql-dev mariadb-client tzdata nodejs"
@@ -37,7 +37,7 @@ RUN apk update \
     && apk add --update --no-cache ${RUNTIME_PACKAGES} \
     && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
     && bundle install --jobs=4 \
-    && yarn install \
+#    && yarn install \
     && rm -rf /usr/local/bundle/cache/*.gem \
         && find /usr/local/bundle/gems/ -name "*.c" -delete \
         && find /usr/local/bundle/gems/ -name "*.o" -delete \
