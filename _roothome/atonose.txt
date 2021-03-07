@@ -3,6 +3,7 @@
 
 gem 'active_model_serializers'
 gem 'devise_token_auth'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -13,4 +14,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'annotate'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-erd'
 end
